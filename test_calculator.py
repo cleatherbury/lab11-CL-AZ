@@ -1,5 +1,5 @@
 import unittest
-from calculator import *
+from calculator import mul, div
 
 class TestCalculator(unittest.TestCase):
     ######### Partner 2
@@ -11,11 +11,15 @@ class TestCalculator(unittest.TestCase):
     # ##########################
 
     ######## Partner 1
-    # def test_multiply(self): # 3 assertions
-    #     fill in code
+    def test_multiply(self): # 3 assertions
+        self.assertEqual(mul(2, 4), 8)
+        self.assertEqual(mul(2.5, 10), 25)
+        self.assertEqual(mul(-10, 0), 0)
 
-    # def test_divide(self): # 3 assertions
-    #     fill in code
+    def test_divide(self): # 3 assertions
+        self.assertEqual(div(4, 2), 0.5)
+        self.assertEqual(div(-2, 10), -5)
+        self.assertEqual(div(0, 20), ZeroDivisionError)
     # ##########################
 
     ######## Partner 2
@@ -34,10 +38,9 @@ class TestCalculator(unittest.TestCase):
     # ##########################
     
     ######## Partner 1
-    # def test_log_invalid_argument(self): # 1 assertion
-    #     # call log function inside, example:
-    #     # with self.assertRaises(<INSERT_ERROR_TYPE>):
-    #     #     logarithm(0, 5)
+    def test_log_invalid_argument(self): # 1 assertion
+        with self.assertRaises(ValueError):
+            logarithm(0, 5)
     #     fill in code
 
     # def test_hypotenuse(self): # 3 assertions
